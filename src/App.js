@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+
+import { Switch, Route, Link } from 'react-router-dom';
+
+import TestQuery from './TestQuery';
+import DelayedQuery from './DelayedQuery';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -20,6 +25,12 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Link to="/">Home</Link>
+        <Link to="/test">Test</Link>
+        <Switch>
+          <Route exact path="/" component={DelayedQuery} />
+          <Route path="/test" component={TestQuery} />
+        </Switch>
       </div>
     );
   }
